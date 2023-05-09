@@ -29,7 +29,7 @@ function DetailPage() {
   const [commentContent, setCommentContent] = useState("");
   const { mutate } = useMutation((content) => postComment(params.id, content), {
     onSuccess: () => {
-      // setCommentContent("");
+      setCommentContent("");
       queryClient.invalidateQueries(["getArticle", params.id]);
       queryClient.invalidateQueries(["getComments", params.id]);
     },
